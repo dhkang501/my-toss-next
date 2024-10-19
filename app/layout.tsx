@@ -1,15 +1,17 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
-import BottomNavigator from "@/components/elements/BottomNavigator"
+'use client';
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
+import './globals.css';
+import { RecoilRoot } from 'recoil';
+import { ThemeProvider } from '@/components/theme-provider';
+import BottomNavigator from '@/components/elements/BottomNavigator';
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ['latin'] });
 
-export const metadata: Metadata = {
-  title: "MY TOSS",
-  description: "Toss app",
-};
+// export const metadata: Metadata = {
+//   title: 'MY TOSS',
+//   description: 'Toss app',
+// };
 
 export default function RootLayout({
   children,
@@ -19,7 +21,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ThemeProvider
+        <RecoilRoot>
+          <ThemeProvider
             attribute="class"
             defaultTheme="dark"
             enableSystem
@@ -28,6 +31,7 @@ export default function RootLayout({
             {children}
             <BottomNavigator></BottomNavigator>
           </ThemeProvider>
+        </RecoilRoot>
       </body>
     </html>
   );
