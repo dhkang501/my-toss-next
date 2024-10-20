@@ -1,10 +1,9 @@
-import Header from '@/components/Header';
 import BottomNavigator from '@/components/elements/BottomNavigator';
 
 const layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="w-full h-full">
-      <Header>{children}</Header>
+      {children}
       <BottomNavigator></BottomNavigator>
     </div>
   );

@@ -4,7 +4,6 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import { RecoilRoot } from 'recoil';
 import { ThemeProvider } from '@/components/theme-provider';
-import BottomNavigator from '@/components/elements/BottomNavigator';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -29,7 +28,6 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             {children}
-            <BottomNavigator></BottomNavigator>
           </ThemeProvider>
         </RecoilRoot>
       </body>
