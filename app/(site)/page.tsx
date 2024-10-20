@@ -12,30 +12,31 @@ import { coinsState } from '../atoms';
 const accountData = [
   {
     id: 1,
-    bankName: '토스뱅크',
+    bankName: '신한은행',
     amount: '200,000원',
-    description: '토스뱅크 외화통장',
+    description: '신한은행 통장',
     buttonText: '송금',
-    href: '/sendmoney',
-    // icon: <AiOutlineGlobal size={20} />
   },
   {
     id: 2,
-    bankName: '신한은행',
+    bankName: '우리은행',
     amount: '100,000,000원',
-    description: '신한은행 저축통장',
+    description: '우리은행 저축통장',
     buttonText: '송금',
-    href: '/sendmoney',
-    // icon: <AiOutlineGlobal size={20} />
   },
   {
     id: 3,
-    bankName: '증권',
+    bankName: '카카오뱅크',
     amount: '2,900,100원',
+    description: '카카오뱅크 외화통장',
+    buttonText: '송금',
+  },
+  {
+    id: 4,
+    bankName: '토스',
+    amount: '1,320,100원',
     description: '토스뱅크 외화통장',
     buttonText: '송금',
-    href: '/sendmoney',
-    // icon: <AiOutlineGlobal size={20} />
   },
 ];
 
@@ -45,50 +46,30 @@ const summaryData = [
     amount: '732,353원',
     description: '9월에 쓴 돈',
     buttonText: '내역',
-    href: '/sendmoney',
-    // icon: AiOutlineGlobal,
   },
   {
     id: 2,
     amount: '332,551원',
     description: '9월 25일 낼 카드값',
-    href: '/sendmoney',
-    // icon: AiOutlineGlobal,
   },
 ];
 
 const Home = () => {
+  // const [coins, setCoins] = useRecoilState(coinsState);
+
   // useEffect(() => {
   //   const fetchData = async () => {
-  //     const coinsData = await fetchCoins();
-  //     console.log(coinsData);
+  //     try {
+  //       const response = await fetchCoins();
+  //       setCoins(response.data);
+  //       console.log(response.data);
+  //     } catch (error) {
+  //       console.error('Error fetching coins:', error);
+  //     }
   //   };
+
   //   fetchData();
   // }, []);
-
-  const [coins, setCoins] = useRecoilState(coinsState);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetchCoins();
-        setCoins(response.data);
-        console.log(response.data);
-      } catch (error) {
-        console.error('Error fetching coins:', error);
-      }
-    };
-
-    fetchData();
-  }, []);
-
-  // // api 호출
-  // try {
-  //   const coinsData = await fetchCoins();
-  //   console.log('Fetched coins data:', coinsData);
-  // } catch (error) {
-  //   console.error('Error fetching coins:', error);
-  // }
 
   return (
     <div className="m-2">
@@ -113,7 +94,7 @@ const Home = () => {
             amount={account.amount}
             description={account.description}
             buttonText={account.buttonText}
-            href={account.href}
+            bankName={account.bankName}
           />
         ))}
         <div className="w-full h-px bg-gray-400 my-3"></div>
@@ -131,15 +112,14 @@ const Home = () => {
             amount={summary.amount}
             description={summary.description}
             buttonText={summary.buttonText}
-            href={summary.href}
           />
         ))}
       </BoxLayout>
-      <div>
+      {/* <div>
         {coins.map((coin, index) => (
           <div key={index}>{coin.name}</div>
         ))}
-      </div>
+      </div> */}
     </div>
   );
 };
