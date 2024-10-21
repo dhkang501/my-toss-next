@@ -57,19 +57,19 @@ const summaryData = [
 const Home = () => {
   // const [coins, setCoins] = useRecoilState(coinsState);
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const response = await fetchCoins();
-  //       setCoins(response.data);
-  //       console.log(response.data);
-  //     } catch (error) {
-  //       console.error('Error fetching coins:', error);
-  //     }
-  //   };
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetchCoins();
+        // setCoins(response.data);
+        console.log(response.data);
+      } catch (error) {
+        // console.error('Error fetching coins:', error);
+      }
+    };
 
-  //   fetchData();
-  // }, []);
+    fetchData();
+  }, []);
 
   return (
     <div className="m-2">

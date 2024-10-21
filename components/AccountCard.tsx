@@ -2,13 +2,15 @@
 import React, { useEffect, useState } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import BankLogo from './elements/bankLogo';
+import { useRecoilState } from 'recoil';
+import { sendAccountState, giveAccountState } from '@/app/atoms';
 
 interface AccountCardProps {
   amount: string;
   description: string;
   buttonText?: string;
-  bankName?: string;
-  accountNum?: string;
+  bankName: string;
+  accountNum: string;
 }
 
 const AccountCard: React.FC<AccountCardProps> = ({
@@ -19,6 +21,8 @@ const AccountCard: React.FC<AccountCardProps> = ({
   accountNum,
 }) => {
   const [currentPath, setCurrentPath] = useState('');
+  const [sendAccount, setSendAccount] = useRecoilState(sendAccountState);
+  const [giveAccount, setGiveAccount] = useRecoilState(giveAccountState);
   const router = useRouter();
   const pathname = usePathname();
 
@@ -28,8 +32,12 @@ const AccountCard: React.FC<AccountCardProps> = ({
 
   const handleClick = () => {
     if (currentPath === '/') {
+      //돈 보낼 계좌 description(통장별명), amount(잔액)
+      setSendAccount({ amount, description });
       router.push('/accountList');
     } else if (currentPath === '/accountList') {
+      //돈 받을 계좌 bankName, accountNum, description(통장별명)
+      setGiveAccount({ description, bankName, accountNum });
       router.push('/accountMoneyEnter');
     }
   };

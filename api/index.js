@@ -1,14 +1,14 @@
 import axios from 'axios';
 
 const instance = axios.create({
-  baseURL: 'https://api.coinpaprika.com/v1',
+  baseURL: 'http://13.59.92.128:8080',
   // header: {
   // 	Authrization: '123',
   // },
 });
 
 function fetchCoins() {
-  return instance.get('/coins');
+  return instance.get('/boards');
 }
 
 export { fetchCoins };
