@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const instance = axios.create({
-  baseURL: 'http://13.59.92.128:8080',
+  baseURL: 'http://192.168.31.212:8080/api',
   // header: {
   // 	Authrization: '123',
   // },
@@ -11,7 +11,12 @@ function fetchCoins() {
   return instance.get('/boards');
 }
 
-export { fetchCoins };
+//토스 로그인한 상태
+function fetchAccountId() {
+  return instance.get('/accounts?userId=1');
+}
+
+export { fetchCoins, fetchAccountId };
 
 // const instance = axios.create({
 //   baseURL: 'https://api.coinpaprika.com/v1',

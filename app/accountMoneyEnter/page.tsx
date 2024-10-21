@@ -3,14 +3,22 @@ import BackButton from '@/components/elements/BackButton';
 import React, { useState } from 'react';
 import { useRecoilState } from 'recoil';
 import { giveAccountState, sendAccountState } from '../atoms';
+import { useRouter } from 'next/navigation';
 
 const AccountMoneyEnter = () => {
   const [sendAccount, setSendAccount] = useRecoilState(sendAccountState);
   const [giveAccount, setGiveAccount] = useRecoilState(giveAccountState);
   const [inputAmount, setInputAmount] = useState('');
 
+  const router = useRouter();
+
   const fillWithAmount = () => {
     setInputAmount(sendAccount?.amount || '');
+  };
+
+  const clickNextBtn = () => {
+    router.push('/sendMoneyCheck');
+    //sendMoneyCheck
   };
 
   return (
@@ -48,7 +56,10 @@ const AccountMoneyEnter = () => {
           placeholder="송금할 금액을 입력하세요"
         />
         {inputAmount ? (
-          <button className="mt-2 w-full p-2 bg-blue-500 text-white rounded">
+          <button
+            onClick={clickNextBtn}
+            className="mt-2 w-full p-2 bg-blue-500 text-white rounded"
+          >
             다음
           </button>
         ) : (

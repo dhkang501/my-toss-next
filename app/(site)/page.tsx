@@ -1,6 +1,6 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import { fetchCoins } from '@/api';
+import { fetchAccountId, fetchCoins } from '@/api';
 import { IoIosArrowForward } from 'react-icons/io';
 import { AiOutlineGlobal } from 'react-icons/ai';
 import BoxLayout from '@/components/BoxLayout';
@@ -60,8 +60,7 @@ const Home = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetchCoins();
-        // setCoins(response.data);
+        const response = await fetchAccountId();
         console.log(response.data);
       } catch (error) {
         // console.error('Error fetching coins:', error);
