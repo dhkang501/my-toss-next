@@ -2,9 +2,9 @@ import axios from 'axios';
 
 const instance = axios.create({
   baseURL: 'http://192.168.31.212:8080/api',
-  // header: {
-  // 	Authrization: '123',
-  // },
+  header: {
+    Authrization: '123',
+  },
 });
 
 function fetchCoins() {

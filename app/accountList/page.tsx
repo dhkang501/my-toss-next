@@ -1,7 +1,5 @@
 // 'use client';
-import { error } from 'console';
 import React from 'react';
-// import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import BackButton from '@/components/elements/BackButton';
 import AccountCard from '@/components/AccountCard';
 
@@ -46,25 +44,13 @@ const accountList = async () => {
     <div className="m-4">
       <BackButton />
       <div className="text-2xl font-semibold mx-2">어디로 돈을 보낼까요?</div>
-      {/* <Tabs defaultValue="account" className="w-[400px]">
-        <TabsList>
-          <TabsTrigger value="account">계좌</TabsTrigger>
-          <TabsTrigger value="password">연락처</TabsTrigger>
-        </TabsList>
-        <TabsContent value="account">
-          <div>계좌번호 입력</div>
-        </TabsContent>
-        <TabsContent value="password">
-          <div>핸드폰번호 입력</div>
-        </TabsContent>
-      </Tabs> */}
       <div className="mx-2 my-5">
         <div className="text-2xl text-gray-400">계좌번호 입력</div>
         <div className="w-full h-px bg-gray-400 my-3"></div>
       </div>
       <div className="mx-2 flex justify-between items-center">
         <div className="text-xl mb-5">내 계좌</div>
-        <div className="text-gray-400">+31개</div>
+        {/* <div className="text-gray-400">총 개수</div> */}
       </div>
       {accountData.map((account) => (
         <AccountCard

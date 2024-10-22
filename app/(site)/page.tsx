@@ -56,11 +56,12 @@ const summaryData = [
 
 const Home = () => {
   // const [coins, setCoins] = useRecoilState(coinsState);
-
+  // const [accountData, setAccountData] = useState({});
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetchAccountId();
+        // setAccountData(response);
         console.log(response.data);
       } catch (error) {
         // console.error('Error fetching coins:', error);
@@ -72,11 +73,6 @@ const Home = () => {
 
   return (
     <div className="m-2">
-      {/* {coins.map(coin) => (
-        <div>
-          {coin.}
-        </div>
-      )} */}
       {/* 첫 번째 박스 */}
       <BoxLayout>
         <div className="flex justify-between items-center">
@@ -114,11 +110,6 @@ const Home = () => {
           />
         ))}
       </BoxLayout>
-      {/* <div>
-        {coins.map((coin, index) => (
-          <div key={index}>{coin.name}</div>
-        ))}
-      </div> */}
     </div>
   );
 };
